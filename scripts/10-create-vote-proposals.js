@@ -10,46 +10,77 @@ const tokenModule = sdk.getTokenModule(
 );
 
 (async () => {
-  try {
-    // Create a proposal to mint 420_000 new tokens to the treasury
-    const amount = 420_000;
-    await voteModule.propose(
-      "Should the DAO mint an additional " +
-        amount +
-        " tokens into the treasury?",
-      [
-        {
-          nativeTokenValue: 0,
-          transactionData: tokenModule.contract.interface.encodeFunctionData(
-            "mint",
-            [voteModule.address, ethers.utils.parseUnits(amount.toString(), 18)]
-          ),
-          toAddress: tokenModule.address,
-        },
-      ]
-    );
-    console.log("Successfully created proposal to mint tokens");
-  } catch (err) {
-    console.error("Failed to create first proposal", err);
-    process.exit(1);
-  }
+  // try {
+  //   // Create a proposal to mint 420_000 new tokens to the treasury
+  //   const amount = 420_000;
+  //   await voteModule.propose(
+  //     "Should the DAO mint an additional " +
+  //       amount +
+  //       " tokens into the treasury?",
+  //     [
+  //       {
+  //         nativeTokenValue: 0,
+  //         transactionData: tokenModule.contract.interface.encodeFunctionData(
+  //           "mint",
+  //           [voteModule.address, ethers.utils.parseUnits(amount.toString(), 18)]
+  //         ),
+  //         toAddress: tokenModule.address,
+  //       },
+  //     ]
+  //   );
+  //   console.log("Successfully created proposal to mint tokens");
+  // } catch (err) {
+  //   console.error("Failed to create first proposal", err);
+  //   process.exit(1);
+  // }
+
+  // try {
+  //   // Create proposal to transfer 6_900 tokens to us for being awesome
+  //   const amount = 6_900;
+  //   await voteModule.propose(
+  //     "Should the DAO transfer " +
+  //       amount +
+  //       " tokens to " +
+  //       process.env.WALLET_ADDRESS +
+  //       " for being awesome :)",
+  //     [
+  //       {
+  //         nativeTokenValue: 0,
+  //         transactionData: tokenModule.contract.interface.encodeFunctionData(
+  //           "transfer",
+  //           [
+  //             process.env.WALLET_ADDRESS,
+  //             ethers.utils.parseUnits(amount.toString(), 18),
+  //           ]
+  //         ),
+  //         toAddress: tokenModule.address,
+  //       },
+  //     ]
+  //   );
+  //   console.log(
+  //     "Successfully created proposal to reward ourself from the treasury"
+  //   );
+  // } catch (err) {
+  //   console.error("Failed to create second proposal", err);
+  //   process.exit(1);
+  // }
 
   try {
-    // Create proposal to transfer 6_900 tokens to us for being awesome
-    const amount = 6_900;
+    // Create proposal to transfer 42_000 tokens to 3rd person to send Doge on Mars
+    const amount = 42_000;
     await voteModule.propose(
       "Should the DAO transfer " +
         amount +
         " tokens to " +
-        process.env.WALLET_ADDRESS +
-        " for being awesome :)",
+        "0xc540f01C22CC52B593ff10eB59A1Bf3aB004d0A8" +
+        " to send Doge to Mars 🪐",
       [
         {
           nativeTokenValue: 0,
           transactionData: tokenModule.contract.interface.encodeFunctionData(
             "transfer",
             [
-              process.env.WALLET_ADDRESS,
+              "0xc540f01C22CC52B593ff10eB59A1Bf3aB004d0A8",
               ethers.utils.parseUnits(amount.toString(), 18),
             ]
           ),
@@ -57,9 +88,7 @@ const tokenModule = sdk.getTokenModule(
         },
       ]
     );
-    console.log(
-      "Successfully created proposal to reward ourself from the treasury"
-    );
+    console.log("Successfully created proposal to send Doge to Mars");
   } catch (err) {
     console.error("Failed to create second proposal", err);
     process.exit(1);
