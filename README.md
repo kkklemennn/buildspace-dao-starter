@@ -1,11 +1,7 @@
-# buildspace x thirdweb - Build your own DAO with just Javascript
+# A simple DAO dapp built with just Javascript 
 
-### **Welcome 👋**
-To get started with this course, clone this repo and follow these commands:
+### Description
+Built using thirdweb sdk.
+A simple DAO where members can vote on different active proposals.
 
-1. Run `npm install` at the root of your directory
-2. Run `npm start` to start the project
-3. Start coding!
-
-### **Questions?**
-Have some questions make sure you head over to your [buildspace Dashboard](https://app.buildspace.so/projects/COb520aae3-7925-42f4-a5e7-eaf718933766) and link your Discord account so you can get access to helpful channels and your instructor!
+A preview is avaliable on: https://jolly-shirley-3207d9.netlify.app
